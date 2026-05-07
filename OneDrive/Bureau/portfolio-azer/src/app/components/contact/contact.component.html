@@ -1,0 +1,48 @@
+<div class="contact-section" id="contact">
+  <div class="s-label">05 &mdash; Contact</div>
+  <div class="contact-grid">
+
+    <div class="contact-left">
+      <h2 class="contact-big">
+        Let's work<br>
+        <span class="grad">together.</span>
+      </h2>
+      <div class="clinks">
+        <a [href]="l.href" class="clink" *ngFor="let l of links">
+          <div class="clink-ic" [ngClass]="l.color">
+            <i class="ti {{ l.icon }}"></i>
+          </div>
+          <div>
+            <div class="clink-label">{{ l.label }}</div>
+            <div class="clink-sub">{{ l.sub }}</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <form class="contact-form" (submit)="onSubmit($event)">
+      <div class="form-g">
+        <label>Name</label>
+        <input type="text" placeholder="Your name" [(ngModel)]="formData.name" name="name" required>
+      </div>
+      <div class="form-g">
+        <label>Email</label>
+        <input type="email" placeholder="your@email.com" [(ngModel)]="formData.email" name="email" required>
+      </div>
+      <div class="form-g">
+        <label>Message</label>
+        <textarea placeholder="Your message..." [(ngModel)]="formData.message" name="message" required></textarea>
+      </div>
+
+      <!-- Status message -->
+      <div *ngIf="submitStatus" [class.error]="submitError" class="submit-status">
+        {{ submitStatus }}
+      </div>
+
+      <button type="submit" class="btn-sub" [disabled]="isSubmitting">
+        {{ isSubmitting ? 'Sending...' : 'Send message →' }}
+      </button>
+    </form>
+
+  </div>
+</div>

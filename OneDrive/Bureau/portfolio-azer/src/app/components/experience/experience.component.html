@@ -1,0 +1,19 @@
+<section id="experience">
+  <div class="s-label">03 &mdash; Experience</div>
+  <h2 class="scramble-title"
+      [appScramble]="'Professional Journey'"
+      [scrambleDuration]="800">Professional Journey</h2>
+
+  <div class="exp-timeline">
+    <div class="exp-entry" appScrollReveal *ngFor="let exp of experiences">
+      <div class="exp-dot" [ngClass]="exp.color"></div>
+      <div class="exp-date">{{ exp.date }}</div>
+      <div class="exp-company">{{ exp.company }}</div>
+      <div class="exp-role">{{ exp.role }}</div>
+      <div class="exp-stack">{{ exp.stack }}</div>
+      <ul class="exp-bullets">
+        <li *ngFor="let b of exp.bullets">{{ b }}</li>
+      </ul>
+    </div>
+  </div>
+</section>

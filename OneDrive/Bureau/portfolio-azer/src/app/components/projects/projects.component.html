@@ -1,0 +1,98 @@
+<section id="projects">
+  <div class="s-label">04 &mdash; Projects</div>
+  <h2 class="scramble-title"
+      [appScramble]="'Selected Work'"
+      [scrambleDuration]="800">Selected Work</h2>
+
+  <!-- ── FEATURED: Cabinet Ichraf ── -->
+  <div class="proj-featured">
+    <div class="featured-badge">FEATURED</div>
+
+    <div class="pf-left">
+      <div class="pf-story-tag">
+        <span class="tag-line"></span>
+        Personal project &mdash; turned into MVP
+      </div>
+      <h3 class="pf-title">{{ featured.title }}</h3>
+      <p class="pf-origin">{{ featured.story }}</p>
+
+      <div class="pf-features">
+        <div class="pf-feat" *ngFor="let f of featured.features">
+          <div class="pf-feat-icon" [ngClass]="f.iconColor">
+            <i class="ti {{ f.icon }}"></i>
+          </div>
+          <div>
+            <div class="pf-feat-text">{{ f.title }}</div>
+            <div class="pf-feat-sub">{{ f.sub }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tags">
+        <span class="tag" *ngFor="let t of featured.tags" [ngClass]="t.color">{{ t.label }}</span>
+      </div>
+    </div>
+
+    <div class="pf-right">
+
+      <!-- Phone mockup – replace img src when you have a real screenshot -->
+      <div class="phone-mock">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="phone-header">
+            <span class="phone-app-name">Cabinet Ichraf</span>
+            <div class="phone-bell"><i class="ti ti-bell"></i></div>
+          </div>
+          <div class="phone-stat-row">
+            <div class="phone-stat purple"><span class="psn">24</span><span class="psl">Patients</span></div>
+            <div class="phone-stat teal">  <span class="psn">8</span> <span class="psl">Today</span></div>
+          </div>
+          <div class="divider"></div>
+          <div class="phone-section-label">Next appointments</div>
+          <div class="phone-item" *ngFor="let p of phonePeople">
+            <div class="phone-avatar" [style.background]="p.bg" [style.color]="p.color">{{ p.initials }}</div>
+            <span class="phone-name">{{ p.name }}</span>
+            <span class="phone-time">{{ p.time }}</span>
+          </div>
+          <div class="phone-bottom">
+            <i class="ti ti-home active"></i>
+            <i class="ti ti-users"></i>
+            <i class="ti ti-calendar"></i>
+            <i class="ti ti-cash"></i>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── REGULAR PROJECTS ── -->
+  <div class="proj-grid">
+    <div class="proj-card" *ngFor="let p of projects">
+      <div class="proj-top">
+        <div class="proj-icon-wrap" [ngClass]="p.iconColor">
+          <i class="ti {{ p.icon }}"></i>
+        </div>
+        <div class="proj-num">{{ p.num }}</div>
+      </div>
+
+      <div class="proj-title">{{ p.title }}</div>
+      <div class="proj-desc">{{ p.desc }}</div>
+
+      <!-- Screenshot: shows image if file exists, otherwise shows placeholder -->
+      <div class="proj-screenshot">
+        <img [src]="p.screenshot" [alt]="p.title + ' screenshot'"
+             (error)="onImgError($event)"
+             class="proj-img">
+        <div class="proj-placeholder" style="display:none;">
+          <i class="ti ti-photo"></i>
+          <span>Add screenshot in assets/screenshots/</span>
+        </div>
+      </div>
+
+      <div class="tags">
+        <span class="tag" *ngFor="let t of p.tags" [ngClass]="t.color">{{ t.label }}</span>
+      </div>
+    </div>
+  </div>
+</section>

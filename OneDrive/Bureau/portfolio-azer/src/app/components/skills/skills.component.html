@@ -1,0 +1,16 @@
+<div class="skills-section" id="skills">
+  <div class="s-label">02 &mdash; Skills</div>
+  <h2 class="scramble-title"
+      [appScramble]="'Tech Stack'"
+      [scrambleDuration]="800">Tech Stack</h2>
+
+  <div class="skills-grid">
+    <div class="sk" *ngFor="let sk of skills">
+      <div class="sk-icon-wrap" [ngClass]="sk.color">
+        <i class="ti {{ sk.icon }}"></i>
+      </div>
+      <span class="sk-name">{{ sk.name }}</span>
+      <span class="sk-cat">{{ sk.cat }}</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+.skills-section {
+  background: var(--bg2);
+  padding: 7rem 6vw;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1px;
+  border: 1px solid rgba(108, 99, 255, .12);
+}
+
+.sk {
+  background: var(--bg2);
+  padding: 1.4rem 1.2rem;
+  border: 1px solid transparent;
+  transition: all .25s;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: .45rem;
+  cursor: default;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    height: 2px; width: 0;
+    background: var(--accent);
+    transition: width .3s;
+  }
+
+  &:hover {
+    background: var(--bg3);
+    border-color: rgba(108, 99, 255, .25);
+
+    &::after { width: 100%; }
+  }
+}
+
+.sk-icon-wrap {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  i { font-size: 18px; }
+
+  &.purple {
+    background: rgba(108, 99, 255, .12);
+    i { color: var(--accent); }
+  }
+  &.teal {
+    background: rgba(0, 217, 163, .1);
+    i { color: var(--accent3); }
+  }
+  &.pink {
+    background: rgba(255, 107, 107, .1);
+    i { color: var(--accent2); }
+  }
+}
+
+.sk-name {
+  font-family: var(--font-display);
+  font-size: .88rem;
+  font-weight: 700;
+}
+
+.sk-cat {
+  font-size: .7rem;
+  color: var(--muted);
+}
