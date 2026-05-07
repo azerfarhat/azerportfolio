@@ -1,6 +1,6 @@
 {
-  "installCommand": "npm install",
-  "buildCommand": "npm run build",
+  "buildCommand": "npm ci && npx ng build",
   "outputDirectory": "dist/portfolio-azer/browser",
-  "framework": "angular"
+  "framework": "angular",
+  "nodejs": "18.x"
 }
