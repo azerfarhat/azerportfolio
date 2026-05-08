@@ -1,0 +1,214 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8rem 6vw 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(108, 99, 255, .04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(108, 99, 255, .04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 20%, transparent 100%);
+}
+
+.hero-orb {
+  position: absolute;
+  top: -200px; left: -180px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(108, 99, 255, .1) 0%, transparent 60%);
+  animation: orbFloat 8s ease-in-out infinite alternate;
+}
+
+.hero-orb2 {
+  position: absolute;
+  bottom: -120px; right: -80px;
+  width: 450px; height: 450px;
+  background: radial-gradient(circle, rgba(0, 217, 163, .07) 0%, transparent 60%);
+  animation: orbFloat 11s ease-in-out infinite alternate-reverse;
+}
+
+/* WELCOME */
+.welcome-line {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp .7s .15s ease both;
+
+  .in-word {
+    color: #ffffff;
+    font-weight: 800;
+    letter-spacing: .3em;
+    margin: 0 6px;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      animation: fadeUp .7s .4s ease both;
+    }
+  }
+}
+
+/* NAME */
+.name-wrap {
+  margin-bottom: .8rem;
+  opacity: 0;
+  animation: fadeUp .7s .3s ease both;
+}
+
+.hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(4.5rem, 11vw, 9rem);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+  color: #ffffff;
+}
+
+/* SPACE LABEL */
+.space-label {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: .08em;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp .7s .45s ease both;
+
+  em {
+    color: #ffffff;
+    font-style: normal;
+    font-weight: 700;
+  }
+}
+
+/* BADGE */
+.opp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: .8rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent3);
+  border: 1px solid rgba(0, 217, 163, .3);
+  padding: .45rem 1.1rem;
+  border-radius: 20px;
+  width: fit-content;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp .7s .6s ease both;
+}
+
+.opp-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--accent3);
+  animation: blink 1.6s infinite;
+}
+
+/* ROLE */
+.role-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 1.2rem;
+  opacity: 0;
+  animation: fadeUp .7s .75s ease both;
+}
+
+.role-bar {
+  width: 32px; height: 2px;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.role-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2.5vw, 1.8rem);
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: .02em;
+  min-width: 280px;
+}
+
+/* TYPEWRITER */
+.typewriter-row {
+  font-size: 1.15rem;
+  color: var(--muted);
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeUp .7s .88s ease both;
+
+  .tw-label { color: var(--muted); }
+  .tw-text   { color: #ffffff; font-weight: 500; }
+}
+
+.cursor-blink {
+  display: inline-block;
+  width: 2px; height: 1em;
+  background: var(--accent);
+  margin-left: 2px;
+  vertical-align: middle;
+  animation: blink 1s infinite;
+}
+
+/* CTAS */
+.hero-ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp .7s 1s ease both;
+  margin-bottom: 3rem;
+}
+
+/* SCROLL HINT */
+.scroll-hint {
+  position: absolute;
+  bottom: 2.5rem; left: 6vw;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+  font-size: .9rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fadeUp .7s 1.2s ease both;
+}
+
+.scroll-line {
+  width: 38px; height: 1px;
+  background: #4a4a6a;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--accent);
+    animation: scan 2s infinite ease-in-out;
+  }
+}
